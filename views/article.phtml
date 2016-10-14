@@ -1,0 +1,7 @@
+
+<p>Ajoutez un commentaire</p>
+<form action="<?=CLIENT_ROOT?>/comment/addComment/?id=<?=$article['id']?>" method="post">
+	<input type="text" name="pseudo" placeholder="pseudo">
+	<textarea type="text" name="content" placeholder="commentaire"></textarea>
+	<input type="submit" value="envoyer">
+</form>

@@ -1,0 +1,43 @@
+<!--  -->
+<?php if (!isset($_SESSION)):?>
+	<div class="identification">
+		<form id="authentification" method="post" action="<?=CLIENT_ROOT?>/users/authentification/">
+			<input name="pseudo" type="text" placeholder="pseudo">
+			<input name="password" type="password" placeholder="mot de passe">
+			<input id="authentification" type="submit" value="envoyer" >
+		</form>
+	</div>
+<?php else: ?>
+	<div>
+		<p>bonjour<?=$user['pseudo']?></p>
+	</div>
+<?php endif ?>
+
+<div class="pseudo"></div>
+
+<div class="content">
+<!-- prépare les différents div correspondant à chaque article et les lien correspondant afin de pouvoir les exploiter en js-->
+	<?php foreach ($infos as $key => $value): ?> 
+		<div id="<?=$value["id"]?>" class="articles">
+			<div></div>
+			<a href="<?=CLIENT_ROOT?>/articles/getOne/?id=<?=intval($value["id"])?>">Lire la suite</a>			
+		</div>
+	<?php endforeach ?>
+
+	<div class="article">
+		<a id="retour" href="#">Retour à la liste des articles</a>
+		
+		<div class="texte"></div>
+		<div class="comments"></div>
+	</div>
+	
+	<div id="addComment">
+		<form action="<?=CLIENT_ROOT?>/comment/addComment/">
+			<textarea name="content" id="" cols="30" rows="10" placeholder="Votre commentaire"></textarea>
+			<input id="form" type="submit" value="envoyer">
+		</form>
+	</div>
+	
+</div>
+
+
